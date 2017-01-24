@@ -14,6 +14,7 @@ cat << EOF > $STEAMCMD/arma3_inst.txt
 // installing arma3
 @ShutdownOnFailedCommand 1 //set to 0 if updating multiple servers at once
 @NoPromptForPassword 1
+set_steam_guard_code B5TDR
 login $STEAM_LOGIN $STEAM_PASSWORD
 force_install_dir ./arma3/
 app_update 233780 validate

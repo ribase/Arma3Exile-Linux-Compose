@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  arma3server:
+    build: arma3
+    ports:
+      - 2302:2302
+    environment:
+      STEAM_PASSWORD: qw12Er34
+      STEAM_LOGIN: ribase1
+    #  MOD_SCRIPT: /tmp/modsetup.sh
+    volumes:
+      - ./data/:/home/steam/
+    links:
+      - exiledb
+  exiledb:
+    image: mysql/mysql-server:5.6
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - ./database/data/mysql/:/var/lib/mysql
